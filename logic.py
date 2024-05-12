@@ -10,7 +10,6 @@ contacts = {}
 class ContactBook(QtWidgets.QDialog, Ui_ContactBook):
     """
     This class contains all of the methods for the UI interactables.
-    We tried tirelessly to get this to work outside of this file, but we could never get it down.
     """
 
     def __init__(self, parent=None):
@@ -162,7 +161,7 @@ def load_contacts_from_txt() -> dict:
     except ValueError:
         print("[load_contacts_from_txt] unable to read contacts from file (data error), starting with blank dict")
         print("[load_contacts_from_txt] contact file will be purged from disk, a backup will be available however")
-        shutil.copy("contacts.txt", "contacts.txt")
+        shutil.copy("contacts.txt", "contacts.bak")
         os.remove("contacts.txt")
         return {}
 
